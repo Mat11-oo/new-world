@@ -1,0 +1,65 @@
+# 统一的视频生成场景：合并原 AI 短片、电商广告片、旅游宣传片的通用视频流程。
+# 单个完整视频：剧本、分镜、参考图、视频与后期一次生成。
+name: 视频生成
+tagline: 从想法到完整视频
+description: 一个统一的视频生成场景。写下故事、商品卖点或目的地，自动完成剧本、角色与场景、分镜、参考图、视频和后期。
+category: video
+order: 15
+
+defaults:
+  style: realistic
+  video_ratio: "16:9"
+  video_resolution: 720P
+  video_generation_mode: first_frame
+  episodes: 1
+  video_duration: 5
+
+ui:
+  hero_title: 一句话，生成完整视频
+  hero_subtitle: 自动生成剧本、画面与完整视频
+  placeholder: 描述你想生成的视频：一个故事、一个产品卖点，或一个目的地……
+  examples:
+    - title: 科幻短片
+      description: 从一句灵感到一部完整短片
+      idea: 一位宇航员在废弃空间站收到来自地球的最后一封信，决定返航。科幻、克制、电影感。
+      image: /ui/inspiration-space.png
+    - title: 产品广告
+      description: 卖点清晰的带货视频
+      idea: 一款 300ml 便携保温杯，316 不锈钢内胆，12 小时保温，一键弹盖防漏。目标人群是通勤白领，突出早上赶地铁也能喝上热咖啡的场景。
+      image: /ui/inspiration-cat.png
+    - title: 旅游宣传片
+      description: 用一个目的地讲一个故事
+      idea: 秋天的新疆喀纳斯，突出晨雾中的神仙湾、禾木图瓦人村落的炊烟和金色白桦林，面向喜欢自驾和摄影的年轻游客，基调安静治愈。
+      image: /ui/inspiration-mars.png
+    - title: 悬疑故事
+      description: 雨夜中的神秘黑影
+      idea: 请生成一个发生在上世纪伦敦的悬疑侦探故事短片，雨夜、旧车站和一封没有署名的信。
+      image: /ui/inspiration-detective.png
+    - title: 古风短片
+      description: 竹林深处的剑客对决
+      idea: 制作一段节奏紧凑的古风武侠打斗场面，竹林、雨声、两名剑客的最后一战。
+      image: /ui/inspiration-wuxia.png
+    - title: 水墨动画
+      description: 山水之间扁舟一叶
+      idea: 请帮我制作一个水墨中国风的动画，山水之间一叶扁舟，留白和雾气为主。
+      image: /ui/inspiration-ink.png
+
+stages:
+  - type: script_generation
+    name: 剧本生成
+    short_name: 剧本
+  - type: character_design
+    name: 角色 / 场景设计
+    short_name: 角色
+  - type: storyboard
+    name: 分镜设计
+    short_name: 分镜
+  - type: reference_generation
+    name: 参考图生成
+    short_name: 参考图
+  - type: video_generation
+    name: 视频生成
+    short_name: 视频
+  - type: post_production
+    name: 后期剪辑
+    short_name: 后期

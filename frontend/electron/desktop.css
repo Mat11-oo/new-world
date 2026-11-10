@@ -1,0 +1,88 @@
+body.nw-desktop {
+    overflow: hidden;
+}
+
+.nw-desktop-titlebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    height: 38px;
+    padding: 0 18px 0 92px;
+    border-bottom: 1px solid rgba(247, 244, 236, 0.09);
+    background:
+        linear-gradient(90deg, rgba(244, 241, 234, 0.025), transparent 34%),
+        rgba(8, 8, 10, 0.94);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    -webkit-app-region: drag;
+    user-select: none;
+}
+
+.nw-desktop-brand {
+    color: #f4f1ea;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.nw-desktop-sub {
+    margin-left: 10px;
+    color: rgba(245, 242, 234, 0.34);
+    font-size: 8px;
+    letter-spacing: 0.16em;
+}
+
+.nw-desktop-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-left: auto;
+    color: rgba(245, 242, 234, 0.38);
+    font-size: 8px;
+    letter-spacing: 0.16em;
+}
+
+.nw-desktop-status::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #f4f1ea;
+    box-shadow: 0 0 8px rgba(244, 241, 234, 0.6);
+}
+
+body.nw-desktop .nw-wb-sidebar {
+    top: 38px;
+    bottom: 12px;
+}
+
+body.nw-desktop .nw-wb-main {
+    height: calc(100dvh - 38px);
+    margin-top: 38px;
+}
+
+body.nw-desktop .nw-wb-content.is-workbench {
+    min-height: calc(100dvh - 38px);
+}
+
+body.nw-desktop .nw-wb-mobilebar {
+    top: 38px;
+}
+
+
+/* Boot cover: keep the entry bar and HUD below the native traffic lights */
+body.nw-desktop .nw-entry-bar {
+    top: 38px;
+}
+
+body.nw-desktop .nw-entry .nw-hero::before {
+    top: 56px;
+}
+
+body.nw-desktop .nw-entry .nw-hero::after {
+    top: 56px;
+}

@@ -1,0 +1,36 @@
+.DS_Store
+.vscode/
+.idea/
+.claude/
+.screens/
+.publish-repo/
+.deploy-key
+.deploy-key.pub
+
+# Secrets and local configuration
+.env
+.env.*
+backend/config.yaml
+backend/registry/models.local.yaml
+frontend/desktop.config.json
+
+# Runtime data and generated files
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/.venv/
+backend/code/
+backend/temp/
+data/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/release/
+frontend/coverage/
+*.tsbuildinfo
+
+# Local screenshots / generated docs images
+docs/*.png
+docs/*.jpg
+docs/*.jpeg
+docs/*.webp

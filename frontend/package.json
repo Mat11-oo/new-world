@@ -1,0 +1,38 @@
+{
+  "name": "new-world-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Mat11-oo",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "desktop": "npm run build && env -u ELECTRON_RUN_AS_NODE electron .",
+    "desktop:app": "env -u ELECTRON_RUN_AS_NODE electron .",
+    "desktop:dev": "NW_USE_DEV=1 env -u ELECTRON_RUN_AS_NODE electron .",
+    "desktop:package": "env -u ELECTRON_RUN_AS_NODE electron-packager . \"New World\" --platform=darwin --arch=arm64 --out=release --overwrite --prune=false --icon=electron/icon.icns --app-bundle-id=studio.newworld.client --app-version=0.1.0 --ignore='node_modules|package-lock.json|\\.next|/app|/components|/lib|/config|/public|/release|/scripts|/docs|tsconfig|next-env|postcss|eslint|README|Dockerfile|DESKTOP'"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0",
+    "next": "16.3.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "electron": "^45.2.3",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "main": "electron/main.cjs"
+}

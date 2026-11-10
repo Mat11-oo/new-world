@@ -1,0 +1,4 @@
+{
+  "frontend": "/absolute/path/to/new-world/frontend",
+  "projectRoot": "/absolute/path/to/new-world"
+}
