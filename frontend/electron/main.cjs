@@ -93,8 +93,6 @@ async function waitFor(url, timeoutMs = 60000) {
 function findUv() {
     const candidates = [
         process.env.UV_BIN,
-        '/opt/homebrew/bin/uv',
-        '/usr/local/bin/uv',
     ].filter(Boolean);
     for (const candidate of candidates) {
         try {

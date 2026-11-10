@@ -6,73 +6,114 @@
 </p>
 
 <p align="center">
-  <a href="./README.md">简体中文</a> · <b>English</b>
+  <a href="./README.md">简体中文</a> · <b>English</b> · <a href="./LICENSE">MIT License</a>
 </p>
 
 ---
 
-## Features
+## Overview
 
-### Video generation
+New World is a local-first AI creation workspace. It breaks content production into observable and reviewable stages, then adapts the same pipeline to different video and image tasks through scenario packages.
 
-- Describe a story, product or destination and generate a complete video
-- Choose 5 / 10 / 15 seconds per clip
-- Automatic script, character and scene design, storyboard, reference images, video and post-production
-- Review, edit and regenerate every stage
+Current capabilities:
 
-### Creation tools
-
+- **Video generation**: script → characters and scenes → storyboard → references → video → post-production
 - **LLM chat** with model selection and web search
 - **Text to image**, including a product-poster mode
 - **Image to image** style transformation
+- **Native Electron client**
 
-Tools run directly inside the workbench; results appear in an overlay without leaving the page.
+The workbench uses a dark HUD, glass surfaces and a grid visual language. Tool entries open inside the current workbench, not on a separate page.
 
-### Desktop client
+## Architecture
 
-- Native Electron window
-- Dark HUD / glass interface
-- Boot cover and workbench
-- The client manages the local backend and renderer
+![New World architecture](./docs/architecture.svg)
 
-## Stack
+```mermaid
+flowchart LR
+    A[Idea] --> B[Script]
+    B --> C[Characters & Scenes]
+    C --> D[Storyboard]
+    D --> E[References]
+    E --> F[Video clips]
+    F --> G[Post-production]
+    G --> H[Final video]
+```
 
-- **Frontend**: Next.js 16, React 19, Tailwind CSS 4, TypeScript
-- **Backend**: FastAPI, Python 3.12, uv
-- **Desktop**: Electron
-- **Workflow**: scenario packages, multi-stage agents, SSE progress streaming
+Layers:
+
+1. **Model layer**: LLM, VLM, image and video providers behind a registry
+2. **Stages**: script, character/scene design, storyboard, references, video, post-production
+3. **Orchestration**: workflow engine, scenario registry, sessions and artifacts
+4. **API**: FastAPI REST and SSE progress
+5. **Frontend**: workbench, creation area, tools and settings
+6. **Entry**: Electron desktop client and browser preview
+
+## Key concepts
+
+- **Scenario package**: `scenario.yaml` declares stages, defaults, UI copy and prompt overrides
+- **Artifact**: the output of a stage, persisted with version history
+- **Human in the loop**: every stage can be confirmed, edited or regenerated
+- **SSE**: progress and asset events streamed to the frontend
+- **Single-page tools**: tools run in the current workbench and show results in an overlay
 
 ## Quick start
 
-### Requirements
-
-- Python 3.12+ and [uv](https://docs.astral.sh/uv/)
-- Node.js 18+
-- ffmpeg
-
-### Configuration
+Requirements: Python 3.12+, uv, Node.js 18+, ffmpeg.
 
 ```bash
-cp backend/config.yaml.example backend/config.yaml
-```
+cd backend
+uv sync --extra dev
 
-Add model-provider keys to `backend/config.yaml` or `.env`. `backend/config.yaml` is git-ignored.
+cd ../frontend
+npm install
 
-### Web
-
-```bash
+cd ..
 ./scripts/dev.sh
 ```
 
-- Frontend: http://localhost:3000
-- Backend: http://localhost:8000
+The frontend uses port 3000 and the backend uses port 8000 by default.
 
 ### Desktop
 
 ```bash
 cd frontend
-npm install
 npm run desktop
+```
+
+The client builds the frontend and opens a native Electron window.
+
+## Configuration
+
+```bash
+cp backend/config.yaml.example backend/config.yaml
+```
+
+Add model-provider keys to `backend/config.yaml` or `.env`. Both are git-ignored. Never commit real keys.
+
+Configuration precedence:
+
+```text
+defaults → backend/config.yaml → SFA_* environment variables
+```
+
+## Project structure
+
+```text
+backend/
+  api/                  REST and SSE routes
+  core/                 workflow engine and stage agents
+  models/               provider clients
+  registry/             model registry
+  scenarios/            scenario packages
+  templates/            visual templates
+frontend/
+  app/                  Next.js App Router
+  components/           workbench, tools and stage UI
+  electron/             Electron main process
+  lib/                  API clients and types
+docs/                   architecture, API and extension guides
+scripts/                development scripts
 ```
 
 ## Testing

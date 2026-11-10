@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1120" viewBox="0 0 1600 1120" role="img" aria-labelledby="title desc">
+  <title id="title">New World 系统架构原理图</title>
+  <desc id="desc">New World 从客户端和前端，经 FastAPI、工作流引擎与六个创作阶段，调用多类模型完成视频与图片创作。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5f5a52"/>
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a77d3f"/>
+    </marker>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#dfdcd5" stroke-width="0.6"/>
+    </pattern>
+    <style>
+      .bg { fill: #f6f5f2; }
+      .grid { fill: url(#grid); opacity: .55; }
+      .title { font: 600 36px "Helvetica Neue", Arial, sans-serif; fill: #191816; letter-spacing: -1px; }
+      .subtitle { font: 400 15px "Helvetica Neue", Arial, sans-serif; fill: #6b665e; }
+      .meta { font: 500 11px "SFMono-Regular", Menlo, monospace; fill: #8a847a; letter-spacing: .8px; }
+      .layer-label { font: 600 10px "SFMono-Regular", Menlo, monospace; fill: #8a847a; letter-spacing: 1.4px; }
+      .box { fill: #fffefb; stroke: #d5d0c6; stroke-width: 1.2; }
+      .box-strong { fill: #1b1a18; stroke: #1b1a18; }
+      .box-accent { fill: #f2ece0; stroke: #c3a270; }
+      .box-title { font: 600 14px "Helvetica Neue", Arial, sans-serif; fill: #23211d; }
+      .box-sub { font: 400 10.5px "Helvetica Neue", Arial, sans-serif; fill: #777168; }
+      .box-title-light { font: 600 14px "Helvetica Neue", Arial, sans-serif; fill: #f8f5ee; }
+      .box-sub-light { font: 400 10.5px "Helvetica Neue", Arial, sans-serif; fill: #b9b2a7; }
+      .accent { fill: #a77d3f; }
+      .accent-text { font: 600 10px "SFMono-Regular", Menlo, monospace; fill: #a77d3f; letter-spacing: .8px; }
+      .flow { stroke: #5f5a52; stroke-width: 1.4; fill: none; }
+      .flow-dash { stroke: #a77d3f; stroke-width: 1.4; fill: none; stroke-dasharray: 5 5; }
+      .stage { fill: #fffefb; stroke: #d5d0c6; stroke-width: 1.1; }
+      .stage-num { font: 600 9px "SFMono-Regular", Menlo, monospace; fill: #a77d3f; }
+      .stage-title { font: 600 12.5px "Helvetica Neue", Arial, sans-serif; fill: #23211d; }
+      .stage-sub { font: 400 9.5px "Helvetica Neue", Arial, sans-serif; fill: #7b756c; }
+      .legend { font: 400 10.5px "Helvetica Neue", Arial, sans-serif; fill: #6b665e; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1120"/>
+  <rect class="grid" width="1600" height="1120"/>
+
+  <text class="meta" x="72" y="52">NEW WORLD · SYSTEM ARCHITECTURE</text>
+  <text class="title" x="72" y="100">New World 原理图</text>
+  <text class="subtitle" x="72" y="128">一个以场景包驱动的 AI 视频与视觉创作工作台：从输入想法，到剧本、分镜、画面、视频和后期。</text>
+  <text class="meta" x="1528" y="52" text-anchor="end">MIT · Mat11-oo</text>
+  <text class="meta" x="1528" y="100" text-anchor="end">V1.0</text>
+  <line x1="72" y1="148" x2="1528" y2="148" stroke="#d5d0c6" stroke-width="1"/>
+
+  <!-- Entry layer -->
+  <text class="layer-label" x="72" y="186">01 / 入口层</text>
+  <rect class="box" x="180" y="168" width="300" height="78" rx="10"/>
+  <text class="box-title" x="204" y="198">Electron 桌面客户端</text>
+  <text class="box-sub" x="204" y="220">原生窗口 · 客户端托管本地服务</text>
+  <rect class="box" x="500" y="168" width="260" height="78" rx="10"/>
+  <text class="box-title" x="524" y="198">浏览器预览</text>
+  <text class="box-sub" x="524" y="220">Next.js 开发与预览入口</text>
+  <rect class="box-accent" x="780" y="168" width="250" height="78" rx="10"/>
+  <text class="box-title" x="804" y="198">统一视觉语言</text>
+  <text class="box-sub" x="804" y="220">深色 HUD / 玻璃悬浮 / 网格</text>
+
+  <!-- Frontend -->
+  <text class="layer-label" x="72" y="306">02 / 前端层</text>
+  <rect class="box" x="180" y="278" width="850" height="112" rx="12"/>
+  <text class="box-sub" x="204" y="302">Next.js 16 · React 19 · Tailwind CSS 4 · TypeScript</text>
+  <rect class="box" x="204" y="316" width="180" height="54" rx="8"/>
+  <text class="box-title" x="222" y="338">工作台</text>
+  <text class="box-sub" x="222" y="355">场景 / 工具 / 创作入口</text>
+  <rect class="box" x="398" y="316" width="180" height="54" rx="8"/>
+  <text class="box-title" x="416" y="338">创作区</text>
+  <text class="box-sub" x="416" y="355">阶段时间线 / 预览</text>
+  <rect class="box" x="592" y="316" width="180" height="54" rx="8"/>
+  <text class="box-title" x="610" y="338">工具台</text>
+  <text class="box-sub" x="610" y="355">LLM / 文生图 / 图生图</text>
+  <rect class="box" x="786" y="316" width="220" height="54" rx="8"/>
+  <text class="box-title" x="804" y="338">生成设置</text>
+  <text class="box-sub" x="804" y="355">模型 / 画面 / 时长</text>
+
+  <!-- API -->
+  <text class="layer-label" x="72" y="446">03 / 接口层</text>
+  <rect class="box-strong" x="180" y="418" width="850" height="104" rx="12"/>
+  <text class="accent-text" x="204" y="444">FASTAPI · REST + SSE</text>
+  <text class="box-title-light" x="204" y="470">统一 API 网关</text>
+  <text class="box-sub-light" x="204" y="492">项目创建 · 阶段执行 · 干预 / 重生成 · 进度流 · 工具调用</text>
+  <rect class="box" x="760" y="440" width="110" height="58" rx="7"/>
+  <text class="box-sub" x="777" y="464">REST</text>
+  <text class="box-sub" x="777" y="482">JSON</text>
+  <rect class="box" x="885" y="440" width="120" height="58" rx="7"/>
+  <text class="box-sub" x="903" y="464">SSE</text>
+  <text class="box-sub" x="903" y="482">实时进度</text>
+
+  <!-- Orchestration -->
+  <text class="layer-label" x="72" y="596">04 / 编排层</text>
+  <rect class="box" x="180" y="568" width="260" height="112" rx="10"/>
+  <text class="box-title" x="204" y="596">工作流引擎</text>
+  <text class="box-sub" x="204" y="618">阶段状态机 · 人工确认</text>
+  <text class="box-sub" x="204" y="636">继续 / 重试 / 干预</text>
+  <rect class="box" x="460" y="568" width="260" height="112" rx="10"/>
+  <text class="box-title" x="484" y="596">场景注册表</text>
+  <text class="box-sub" x="484" y="618">scenario.yaml</text>
+  <text class="box-sub" x="484" y="636">阶段 / 默认参数 / 提示词</text>
+  <rect class="box" x="740" y="568" width="290" height="112" rx="10"/>
+  <text class="box-title" x="764" y="596">会话与产物</text>
+  <text class="box-sub" x="764" y="618">meta · artifacts · 版本</text>
+  <text class="box-sub" x="764" y="636">按会话持久化，可恢复</text>
+
+  <!-- Stages -->
+  <text class="layer-label" x="72" y="758">05 / 创作阶段</text>
+  <rect class="box" x="180" y="730" width="850" height="112" rx="12"/>
+  <text class="box-sub" x="204" y="754">每个阶段都可查看、确认、修改或单项重新生成</text>
+  <g>
+    <rect class="stage" x="204" y="770" width="122" height="52" rx="7"/>
+    <text class="stage-num" x="216" y="788">01</text>
+    <text class="stage-title" x="216" y="806">剧本</text>
+    <rect class="stage" x="338" y="770" width="122" height="52" rx="7"/>
+    <text class="stage-num" x="350" y="788">02</text>
+    <text class="stage-title" x="350" y="806">角色场景</text>
+    <rect class="stage" x="472" y="770" width="122" height="52" rx="7"/>
+    <text class="stage-num" x="484" y="788">03</text>
+    <text class="stage-title" x="484" y="806">分镜</text>
+    <rect class="stage" x="606" y="770" width="122" height="52" rx="7"/>
+    <text class="stage-num" x="618" y="788">04</text>
+    <text class="stage-title" x="618" y="806">参考图</text>
+    <rect class="stage" x="740" y="770" width="122" height="52" rx="7"/>
+    <text class="stage-num" x="752" y="788">05</text>
+    <text class="stage-title" x="752" y="806">视频</text>
+    <rect class="stage" x="874" y="770" width="122" height="52" rx="7"/>
+    <text class="stage-num" x="886" y="788">06</text>
+    <text class="stage-title" x="886" y="806">后期</text>
+  </g>
+
+  <!-- Model layer -->
+  <text class="layer-label" x="72" y="914">06 / 模型层</text>
+  <rect class="box" x="180" y="886" width="850" height="104" rx="12"/>
+  <text class="box-sub" x="204" y="910">统一模型注册表 · 按能力路由 · 支持多供应商</text>
+  <g>
+    <rect class="box" x="204" y="924" width="170" height="44" rx="7"/>
+    <text class="box-title" x="220" y="951">LLM 文本</text>
+    <rect class="box" x="388" y="924" width="170" height="44" rx="7"/>
+    <text class="box-title" x="404" y="951">VLM 视觉理解</text>
+    <rect class="box" x="572" y="924" width="170" height="44" rx="7"/>
+    <text class="box-title" x="588" y="951">Image 图像</text>
+    <rect class="box" x="756" y="924" width="170" height="44" rx="7"/>
+    <text class="box-title" x="772" y="951">Video 视频</text>
+  </g>
+
+  <!-- Right side: tool flow and data -->
+  <text class="layer-label" x="1090" y="186">工具直连</text>
+  <rect class="box" x="1090" y="168" width="438" height="112" rx="12"/>
+  <text class="box-title" x="1114" y="196">工具台</text>
+  <text class="box-sub" x="1114" y="218">不进入多阶段工作流，直接调用工具 API</text>
+  <rect class="box" x="1114" y="232" width="120" height="34" rx="6"/>
+  <text class="box-sub" x="1128" y="254">LLM 对话</text>
+  <rect class="box" x="1248" y="232" width="120" height="34" rx="6"/>
+  <text class="box-sub" x="1262" y="254">文生图</text>
+  <rect class="box" x="1382" y="232" width="120" height="34" rx="6"/>
+  <text class="box-sub" x="1396" y="254">图生图</text>
+
+  <text class="layer-label" x="1090" y="446">运行时数据</text>
+  <rect class="box" x="1090" y="418" width="438" height="262" rx="12"/>
+  <text class="box-title" x="1114" y="446">本地优先的持久化</text>
+  <text class="box-sub" x="1114" y="470">会话索引 · 阶段产物 · 媒体文件</text>
+  <line x1="1114" y1="486" x2="1504" y2="486" stroke="#e2ded5"/>
+  <text class="box-sub" x="1114" y="510">session.json</text>
+  <text class="box-sub" x="1114" y="530">artifacts / images / videos</text>
+  <text class="box-sub" x="1114" y="550">版本与选中结果</text>
+  <text class="box-sub" x="1114" y="580">恢复项目时从产物重建界面</text>
+  <text class="box-sub" x="1114" y="600">密钥不进入产物或仓库</text>
+
+  <text class="layer-label" x="1090" y="758">关键原则</text>
+  <rect class="box" x="1090" y="730" width="438" height="260" rx="12"/>
+  <text class="box-title" x="1114" y="758">人在回路</text>
+  <text class="box-sub" x="1114" y="780">每个阶段可确认、修改、重新生成</text>
+  <text class="box-title" x="1114" y="812">场景包即产品</text>
+  <text class="box-sub" x="1114" y="834">YAML + 提示词定义领域流程</text>
+  <text class="box-title" x="1114" y="866">模型可插拔</text>
+  <text class="box-sub" x="1114" y="888">按能力路由，不绑定单一供应商</text>
+  <text class="box-title" x="1114" y="920">本地优先</text>
+  <text class="box-sub" x="1114" y="942">客户端托管服务，数据留在本机</text>
+
+  <!-- Flows -->
+  <line class="flow" x1="330" y1="246" x2="330" y2="278" marker-end="url(#arrow)"/>
+  <line class="flow" x1="630" y1="246" x2="630" y2="278" marker-end="url(#arrow)"/>
+  <line class="flow" x1="605" y1="390" x2="605" y2="418" marker-end="url(#arrow)"/>
+  <line class="flow" x1="605" y1="522" x2="605" y2="568" marker-end="url(#arrow)"/>
+  <line class="flow" x1="605" y1="680" x2="605" y2="730" marker-end="url(#arrow)"/>
+  <line class="flow" x1="605" y1="842" x2="605" y2="886" marker-end="url(#arrow)"/>
+  <path class="flow-dash" d="M 940 470 C 1000 470 1000 330 1030 330 L 1030 246" marker-end="url(#arrowAccent)"/>
+  <text class="accent-text" x="1005" y="360" transform="rotate(-90 1005 360)">SSE 进度 / 确认</text>
+  <path class="flow-dash" d="M 1090 290 C 1040 290 1040 930 1030 950" marker-end="url(#arrowAccent)"/>
+  <text class="accent-text" x="1052" y="690" transform="rotate(-90 1052 690)">工具请求</text>
+
+  <line x1="72" y1="1036" x2="1528" y2="1036" stroke="#d5d0c6" stroke-width="1"/>
+  <text class="legend" x="72" y="1062">实线：主工作流调用　·　虚线：实时进度与工具直连　·　阶段产物可回溯与重做</text>
+  <text class="meta" x="1528" y="1062" text-anchor="end">SCENARIO-DRIVEN · HUMAN-IN-THE-LOOP</text>
+</svg>

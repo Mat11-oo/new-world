@@ -14,8 +14,8 @@ npm run desktop       # rebuild the frontend, then open the client window
 
 The client automatically starts:
 
-- FastAPI backend on `127.0.0.1:8000`
-- Next.js production renderer on `127.0.0.1:3100`
+- FastAPI backend on port `8000`
+- Next.js production renderer on port `3100`
 
 The renderer is internal; the product is the Electron window. It opens at `/` (the New World boot cover), then the cover’s “进入工作台” button opens `/workbench`. It does not open Safari, Chrome, or any browser chrome.
 

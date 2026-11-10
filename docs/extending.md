@@ -45,7 +45,7 @@ models:                       # models.local.yaml 需要这一层；custom_model
 api_providers:
   openai_compatible:
     api_key: sk-...
-    base_url: http://127.0.0.1:11434/v1
+    base_url: http://<ollama-host>:11434/v1
 
 custom_models:
   qwen2.5:14b:

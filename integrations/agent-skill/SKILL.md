@@ -264,7 +264,7 @@ curl "http://localhost:8000/api/project/{session_id}/artifact/{stage}"
 1. 刚完成什么
 2. 下一步做什么
 3. 需要用户决策的内容
-4. **Web 界面链接**：`http://[本地IP]:3000/?session={session_id}&stage={stage}`（注意，这里使用本地 IPv4 地址，不要用 localhost！）
+4. **Web 界面链接**：`http://<your-host>:3000/?session={session_id}&stage={stage}`（使用目标设备可访问的主机名或地址）
 5. 产物图片/视频（直接发送文件，禁止只发路径）
 
 ### Web 界面链接格式
@@ -281,7 +281,7 @@ frontend_url = f"http://{local_ip}:3000/?session={session_id}&stage={stage}"
 send_to_user(f"📊 查看详情：{frontend_url}")
 ```
 
-> **重要**：必须使用本地 IPv4 地址（如 `192.168.1.x`），不要使用 `localhost` 或 `127.0.0.1`，否则用户无法从其他设备访问！
+> **重要**：从其他设备访问时，请使用用户可访问的主机名或地址。
 
 ---
 
