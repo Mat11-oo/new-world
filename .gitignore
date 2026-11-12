@@ -34,3 +34,6 @@ docs/*.png
 docs/*.jpg
 docs/*.jpeg
 docs/*.webp
+
+# 站点演示数据需要入库
+!site/assets/data/
