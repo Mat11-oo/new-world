@@ -9,6 +9,12 @@
   <b>简体中文</b> · <a href="./README_EN.md">English</a> · <a href="./LICENSE">MIT License</a>
 </p>
 
+<p align="center">
+  <a href="https://mat11-oo.github.io/new-world/"><b>▶ 在线演示（GitHub Pages）</b></a>
+  &nbsp;·&nbsp;
+  <a href="https://mat11-oo.github.io/new-world/demo.html">交互 Demo</a>
+</p>
+
 ---
 
 ## 目录

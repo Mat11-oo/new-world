@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>交互演示 · ShortFilm Agent</title>
+<meta name="description" content="用真实项目数据跑一遍 ShortFilm Agent 的六阶段流水线：剧本、角色与场景、分镜、画面、视频、成片。" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23ece9e3'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/css/site.css" />
+<link rel="stylesheet" href="assets/css/demo.css" />
+</head>
+<body class="demo">
+
+<header class="demo-top">
+  <a class="back" href="./">← 返回介绍</a>
+  <span class="sep"></span>
+  <div class="title">
+    <b>亳州有戏</b>
+    <span style="color:var(--faint);font-size:12px">旅游宣传片 · 1 集 · 16:9</span>
+  </div>
+  <span class="demo-badge">静态演示 · 不调用模型</span>
+  <span class="spacer"></span>
+  <button class="btn btn-ghost" id="resetBtn" style="height:32px;font-size:12.5px">重新开始</button>
+</header>
+
+<div class="demo-body">
+  <aside class="demo-side">
+    <div class="side-item">▦ 工作台</div>
+    <div class="side-item">＋ 新建创作 <span class="new">NEW</span></div>
+    <div class="side-item on">▤ 作品</div>
+    <div class="side-item">◫ 灵感库</div>
+    <div class="side-label">生成会话</div>
+    <div class="side-session on">亳州有戏<small>演示项目 · 进行中</small></div>
+    <div class="side-session">最后一封信<small>科幻短片 · 已完成</small></div>
+    <div class="side-session">山间茶事<small>电商广告片 · 已完成</small></div>
+    <div class="side-foot">演示数据来自一个真实生成的<br />「亳州旅游宣传片」项目</div>
+  </aside>
+
+  <main class="demo-main">
+    <div class="stepper" id="stepper"></div>
+    <div class="stage-wrap" id="stageWrap">
+      <div id="stage"></div>
+    </div>
+    <div class="actions" id="actions"></div>
+  </main>
+</div>
+
+<div class="toast-wrap" id="toasts"></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="关闭">×</button>
+  <img id="lightboxImg" alt="" />
+</div>
+
+<script src="assets/js/demo.js"></script>
+</body>
+</html>
